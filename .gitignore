@@ -1,0 +1,5 @@
+
+dataset/train_all.csv
+dataset/train_all_Conv_AE.csv
+dataset/test_all.csv
+dataset/test_all.csv
