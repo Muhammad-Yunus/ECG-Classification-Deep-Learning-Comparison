@@ -1,0 +1,38 @@
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+bidirectional_1 (Bidirection (None, 300, 64)           8960      
+_________________________________________________________________
+bidirectional_2 (Bidirection (None, 64)                25088     
+_________________________________________________________________
+dense_1 (Dense)              (None, 64)                4160      
+_________________________________________________________________
+dense_2 (Dense)              (None, 32)                2080      
+_________________________________________________________________
+dense_3 (Dense)              (None, 2)                 66        
+=================================================================
+Total params: 40,354
+Trainable params: 40,354
+Non-trainable params: 0
+_________________________________________________________________
+
+    model.add(Bidirectional(CuDNNLSTM(32,
+                     return_sequences = True),
+                     input_shape=(max_len, 1)))
+    model.add(Bidirectional(CuDNNLSTM(32,
+                      return_sequences = False)))
+    model.add(Dense(64, 
+                    activation='relu'))
+    model.add(Dense(32, 
+                    activation='relu'))
+    model.add(Dense(2, 
+                    activation='softmax'))
+_________________________________________________________________
+
+EPOCHS = 50
+BATCH_SIZE = 32
+
+Number of Train Data : X (51000, 300), y (51000, 2)
+Number of Test Data : X (9000, 300), y (9000, 2)
+Split : 0.15
+
